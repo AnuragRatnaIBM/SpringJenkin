@@ -30,6 +30,7 @@ pipeline {
                        dir('/home/ubuntu/project/ibm-wave4-workpro')
                          {
                           echo "changed dir"
+                          sh 'docker-compose down'
                           sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
                        }
                     }
