@@ -24,12 +24,17 @@ pipeline {
                 }
             }
         }
+
+
         stage('Deploy') {
                     steps {
-                       dir("/home/anurag/Desktop/11apr/SpringJenkins")
-                       
+                       echo "my dir"
+                       dir('/home/anurag/Desktop/11apr/SpringJenkins')
+                       {
+                       echo "changed dir"
                        sh 'docker-compose down'
                        sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
+                       }
                     }
                 }
     }
