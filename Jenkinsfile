@@ -32,10 +32,13 @@ pipeline {
 
         stage('Deploy') {
                     steps {
-
+                       echo "my dir"
+                       dir('$PATH:/usr/local/bin/docker-compose')
+                        {
+                       echo "changed dir"
                        sh 'docker-compose down'
                        sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
-                        
+                        }
                     }
         }
     }
