@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
                     steps {
                        dir("/home/anurag/Desktop/11apr/SpringJenkins")
-                       sh 'git pull'
+                       
                        sh 'docker-compose down'
                        sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
                     }
