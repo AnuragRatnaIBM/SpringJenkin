@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
                     steps {
                        echo "my dir"
-                       dir('/home/ubuntu/project/ibm-wave4-workpro')
+                       dir('/home/anurag/Desktop/11apr/SpringJenkins')
                          {
                           echo "changed dir"
                           sh 'docker-compose down'
