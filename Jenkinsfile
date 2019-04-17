@@ -1,8 +1,4 @@
 pipeline {
-
-    environment {
-        PATH = "$PATH:/usr/local/bin/docker-compose"
-    }
     agent {
         docker {
             image 'maven:3-alpine'
@@ -28,17 +24,14 @@ pipeline {
                 }
             }
         }
-
-
         stage('Deploy') {
                     steps {
                        echo "my dir"
-                       dir('$PATH:/usr/local/bin/docker-compose')
-                        {
-                       echo "changed dir"
-                       sh 'docker-compose down'
-                       sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
-                        }
+                       dir('/home/ubuntu/project/ibm-wave4-workpro')
+                         {
+                          echo "changed dir"
+                          sh 'docker-compose -f docker-compose.yml up --build -d --remove-orphans'
+                       }
                     }
         }
     }
